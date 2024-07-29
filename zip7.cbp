@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="zip7" />
+		<Option platforms="Windows;" />
+		<Option pch_mode="2" />
+		<Option compiler="clang" />
+		<Build>
+			<Target title="Debug">
+				<Option platforms="Windows;" />
+				<Option output="bin/Debug/zip7" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="0" />
+				<Option compiler="clang" />
+				<Compiler>
+					<Add option="-Weverything" />
+					<Add option="-Wall" />
+					<Add option="-ggdb" />
+					<Add option="-std=c11" />
+					<Add option="-g" />
+					<Add option="-DUNICODE" />
+					<Add option="-D_UNICODE" />
+				</Compiler>
+				<Linker>
+					<Add option="-mwindows" />
+					<Add option="-municode" />
+					<Add library="user32" />
+					<Add library="gdi32" />
+					<Add library="kernel32" />
+					<Add library="comctl32" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option platforms="Windows;" />
+				<Option output="bin/Release/zip7" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="0" />
+				<Option compiler="clang" />
+				<Compiler>
+					<Add option="-std=c11" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add option="-O2" />
+					<Add library="user32" />
+					<Add library="gdi32" />
+					<Add library="kernel32" />
+					<Add library="comctl32" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-m64" />
+			<Add option="-Wall" />
+			<Add option="-std=c17" />
+			<Add option="-municode" />
+			<Add option="-mwindows" />
+			<Add option="-DUNICODE" />
+			<Add option="-D_UNICODE" />
+		</Compiler>
+		<Linker>
+			<Add option="-m64" />
+			<Add library="user32" />
+			<Add library="gdi32" />
+			<Add library="kernel32" />
+			<Add library="comctl32" />
+			<Add library="comdlg32" />
+		</Linker>
+		<Unit filename="main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Extensions>
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

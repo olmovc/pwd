@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1711615123 source:d:\cod\zip7\main.c
+	<windows.h>
+
+1722102690 source:d:\cod\cb\zip7\main.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<math.h>
+	<time.h>
+	<wchar.h>
+	<windows.h>
+	<WINDOWSX.H>
+	<commctrl.h>
+
