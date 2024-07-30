@@ -48,7 +48,7 @@ static long long paswd_min_len, paswd_max_len, paswd_len;
 static size_t time_show = 20;
 static int alphabet_len = 0;
 
-static clock_t clock_time;
+
 
 char* convert_value(int num, int diclen);
 int generate(int min_len, int max_len, int len);
@@ -166,6 +166,8 @@ static void Main_OnCommand(HWND hwnd, int id, HWND hwndCtl, UINT codeNotify)
 // MessageBoxW(0,L"dfasfs",L"dddd",MB_OK);
     wchar_t buffer[3];// = {'\0'};
     char szbuffer[100] = {'\0'};
+    clock_t start_t, end_t;
+    double total_t;
     //char buffer[3];
 //char * str = NULL;
 
@@ -176,15 +178,16 @@ static void Main_OnCommand(HWND hwnd, int id, HWND hwndCtl, UINT codeNotify)
           {
             MessageBoxW(0,L"field ",L"Error",MB_OK);
           }
-          clock_time = clock();
+          start_t = clock();
           int ret = -1;
           ret = generate(paswd_min_len, paswd_max_len, paswd_len);
           if (ret == -1)
             SetWindowTextA(hCurrent, "password not found");
 
-          clock_time = clock() - clock_time;
-         swprintf(szbuffer,60, L"s=%lu", clock_time);
-         MessageBoxA(hwnd,szbuffer,"dgd",0);
+          end_t = clock();// - clock_time;
+          total_t = (double)(end_t - start_t) / CLOCKS_PER_SEC;
+         sprintf(szbuffer,"time %f sec.",total_t);
+         //MessageBoxA(hwnd,szbuffer,"dgd",0);
          SetWindowTextA(hLabel,szbuffer);
           //SetWindowTextA(hLabel,buffer);
         break;
@@ -330,7 +333,7 @@ BOOL _OnCreate(HWND hwnd, LPCREATESTRUCT lpCreateStruct)
 
     hLabel = CreateWindowW(L"Static", L"sec.",
                            WS_VISIBLE | WS_CHILD,
-                           95, 183, 80, 20, hwnd, (HMENU) ID_BTN_START, NULL, NULL);
+                           95, 183, 350, 20, hwnd, (HMENU) ID_BTN_START, NULL, NULL);
 
     return TRUE;
 
